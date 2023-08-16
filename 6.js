@@ -2,6 +2,16 @@ console.log("Завдання: 6 ==============================");
 
 // Створюємо функцію task6, яка використовує setImmediate та проміси.
 function task6() {
+  new Promise((res, rej) => {
+    setImmediate(() => {
+      const random = Math.random();
+      if (random < 0.5) res(`Меньше ніж 0.5.`);
+      else rej(`Більше ніж 0.5`);
+    })
+  })
+  .then((value) => console.log(`Проміс зарезолвився з значенням: ${value}`))
+  .catch((error) => console.log(`Проміс відхилився з помилкою: ${error}`))
+  .finally(() => console.log(`Проміс завершено`));
   // Створюємо новий проміс.
   // Використовуємо функцію setImmediate, щоб виконати функцію асинхронно.
   // Генеруємо випадкове число від 0 до 1
